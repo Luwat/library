@@ -23,7 +23,29 @@
     </div>
     <div class="main">
         <div class="cards">
+            <form action="" method="post">
+                <fieldset>
+                    <legend>Add Book to Library</legend>
+                    <p class="form-row">
+                        <label for="title">Title: </label>
+                        <input type="text" id="title" class="title"required>
+                    </p>
+                    <p class="form-row">
+                        <label for="author">Author: </label>
+                        <input type="text" id="author" class="author" required>
+                    </p>
+                    <p class="form-row">
+                        <label for="pages">pages: </label>
+                        <input type="tel" id="pages" class="pages" required>
+                    </p>
+                    <p class="form-row">
+                        <label for="read">Have you read the book? </label>
+                        <input type="checkbox" id="read" class="read" required>
+                    </p>
+                </fieldset>
 
+                <button class="submit">Add Book</button>
+            </form>
         </div>
     </div>
     <div class="footer">

@@ -1,26 +1,26 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 const myLibrary = [];
+const bookTitle = document.querySelector('.title')
+const bookAuthor = document.querySelector('.author')
+const bookPages = document.querySelector('.pages')
+const bookRead = document.querySelector('.read')
+const addBook = document.querySelector('.submit')
 
 // eslint-disable-next-line no-unused-vars
 function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-}
-
-Book.prototype.sayTitle = function () {
-    return `The title of this book is ${this.title}.`
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
 }
 
 
-const money = new Book('Money', 'Bob Rick', '186', 'not yet read');
-const theDignityOfManHood = new Book('The Dignity of Manhood', 'Gbile Akanni', '158', 'read')
-console.log(money.sayTitle())
-console.log(money)
-myLibrary.push(money, theDignityOfManHood)
-console.log(myLibrary)
+function addBookToLibrary(e) {
+    e.preventDefault()
+    libraryBooks = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.value);
+    console.log(myLibrary);
+  return myLibrary.push(libraryBooks);
+}
 
-// function addBookToLibrary() {
-
-// }
+addBook.addEventListener('click', addBookToLibrary)
