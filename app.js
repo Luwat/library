@@ -52,7 +52,13 @@ addBook.addEventListener('click', () => {
     cardTitle.textContent = `Book title: ${title}`
     cardAuthor.textContent = `Author: ${author}`
     cardPages.textContent = `Pages: ${pages}`
-    cardRead.textContent = `I have ${read}`
+    if (read === true) {
+      cardRead.textContent = `I have read this book`;
+      isRead.textContent = 'Read'
+    } else {
+      cardRead.textContent = `I haven't read this book`;
+      isRead.textContent = 'Not read'
+    }
 
     return cards.appendChild(card);
   })
