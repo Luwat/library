@@ -5,6 +5,8 @@ const bookTitle = document.querySelector('.title')
 const bookAuthor = document.querySelector('.author')
 const bookPages = document.querySelector('.pages')
 const bookRead = document.querySelector('.read')
+const openForm = document.querySelector('.open-form')
+const formContainer = document.querySelector('.form-wrapper')
 const addBook = document.querySelector('.submit')
 const cards = document.querySelector('.cards')
 // eslint-disable-next-line no-unused-vars
@@ -59,9 +61,14 @@ addBook.addEventListener('click', () => {
       cardRead.textContent = `I haven't read this book`;
       isRead.textContent = 'Not read'
     }
-
+    
+    formContainer.classList.remove('show')
     return cards.appendChild(card);
   })
 
   return books
+})
+
+openForm.addEventListener('click', () => {
+  return formContainer.classList.add('show')
 })
