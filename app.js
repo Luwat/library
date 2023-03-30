@@ -45,11 +45,14 @@ addBook.addEventListener('click', () => {
  cardRead.setAttribute('class', 'card-read');
   const isRead = document.createElement('button');
   isRead.setAttribute('class', 'btn-read');
+  const deleteBtn = document.createElement('button');
+  deleteBtn.setAttribute('class', 'btn-delete');
   card.appendChild(cardTitle)
   card.appendChild(cardAuthor)
   card.appendChild(cardPages)
   card.appendChild(cardRead)
   card.appendChild(isRead)
+  card.appendChild(deleteBtn)
   const books = myLibrary.map(({title, author, pages, read}) => {
     cardTitle.textContent = `Book title: ${title}`
     cardAuthor.textContent = `Author: ${author}`
@@ -61,7 +64,21 @@ addBook.addEventListener('click', () => {
       cardRead.textContent = `I haven't read this book`;
       isRead.textContent = 'Not read'
     }
+
+    isRead.addEventListener("click", () => {
+      if (isRead.innerText === "Read") {
+        isRead.innerText = "Not read";
+        cardRead.innerText = `I haven't read this book`;
+      } else {
+        isRead.innerText = "Read";
+        cardRead.innerText = `I have read this book`;
+      }
+    });
+    deleteBtn.textContent = 'Remove Book'
     
+    deleteBtn.addEventListener('click', () => {
+      myLibrary.findIndex((obj) => obj.title)
+    })
     formContainer.classList.remove('show')
     return cards.appendChild(card);
   })
