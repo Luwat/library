@@ -19,16 +19,23 @@ function Book(title, author, pages, read) {
 
 
 function addBookToLibrary(e) {
-  e.preventDefault()
-  if (bookTitle.value === '' ||
-      bookAuthor.value === '' ||
-      bookPages.value === '' ) {
-        alert('insert data')
-      } else {
-        libraryBooks = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.checked);
-        console.log(myLibrary);
-        return myLibrary.push(libraryBooks);
-      }
+  e.preventDefault();
+  if (
+    bookTitle.value === "" ||
+    bookAuthor.value === "" ||
+    bookPages.value === ""
+  ) {
+    alert("insert data");
+  } else {
+    libraryBooks = new Book(
+      bookTitle.value,
+      bookAuthor.value,
+      bookPages.value,
+      bookRead.checked
+    );
+    console.log(myLibrary);
+    return myLibrary.push(libraryBooks);
+  }
 }
 
 addBook.addEventListener('click', addBookToLibrary)
@@ -74,10 +81,13 @@ addBook.addEventListener('click', () => {
         cardRead.innerText = `I have read this book`;
       }
     });
+
     deleteBtn.textContent = 'Remove Book'
     
     deleteBtn.addEventListener('click', () => {
-      myLibrary.findIndex((obj) => obj.title)
+      console.log(myLibrary.findIndex((obj) => obj === cardTitle.innerText))
+      // return deleteBtn.parentElement.remove()
+
     })
     formContainer.classList.remove('show')
     return cards.appendChild(card);
