@@ -85,7 +85,12 @@ addBook.addEventListener('click', () => {
     deleteBtn.textContent = 'Remove Book'
     
     deleteBtn.addEventListener('click', () => {
-      console.log(myLibrary.findIndex((obj) => obj === cardTitle.innerText))
+      // console.log(myLibrary.filter((obj) => {
+      //   if (obj.title === cardTitle.innerText){
+      //      console.log(obj)
+      //   }
+
+      // }))
       // return deleteBtn.parentElement.remove()
 
     })
