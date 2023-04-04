@@ -85,19 +85,14 @@ addBook.addEventListener('click', () => {
     deleteBtn.textContent = 'Remove Book'
     
     deleteBtn.addEventListener('click', () => {
-      // console.log(myLibrary.filter((obj) => {
-      //   if (obj.title === cardTitle.innerText){
-      //      console.log(obj)
-      //   }
-
-      // }))
-      // return deleteBtn.parentElement.remove()
+      return deleteBtn.parentElement.remove()
 
     })
     formContainer.classList.remove('show')
     return cards.appendChild(card);
   })
-
+  
+  console.log(books.keys(card))
   return books
 })
 
