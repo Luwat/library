@@ -92,7 +92,6 @@ addBook.addEventListener('click', () => {
     return cards.appendChild(card);
   })
   
-  console.log(books.keys(card))
   return books
 })
 
