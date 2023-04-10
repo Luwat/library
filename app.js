@@ -5,16 +5,19 @@ const bookTitle = document.querySelector('.title')
 const bookAuthor = document.querySelector('.author')
 const bookPages = document.querySelector('.pages')
 const bookRead = document.querySelector('.read')
+const bookIndex = document.querySelector('.hidden')
 const openForm = document.querySelector('.open-form')
 const formContainer = document.querySelector('.form-wrapper')
 const addBook = document.querySelector('.submit')
 const cards = document.querySelector('.cards')
 // eslint-disable-next-line no-unused-vars
-function Book(title, author, pages, read) {
+
+function Book(title, author, pages, read, index) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.index = index;
 }
 
 
@@ -31,7 +34,8 @@ function addBookToLibrary(e) {
       bookTitle.value,
       bookAuthor.value,
       bookPages.value,
-      bookRead.checked
+      bookRead.checked,
+      Number(bookIndex.value++)
     );
     console.log(myLibrary);
     return myLibrary.push(libraryBooks);
@@ -60,7 +64,7 @@ addBook.addEventListener('click', () => {
   card.appendChild(cardRead)
   card.appendChild(isRead)
   card.appendChild(deleteBtn)
-  const books = myLibrary.map(({title, author, pages, read}) => {
+  const books = myLibrary.map(({title, author, pages, read, index}) => {
     cardTitle.textContent = `Book title: ${title}`
     cardAuthor.textContent = `Author: ${author}`
     cardPages.textContent = `Pages: ${pages}`
@@ -84,14 +88,15 @@ addBook.addEventListener('click', () => {
 
     deleteBtn.textContent = 'Remove Book'
     
-    deleteBtn.addEventListener('click', () => {
-      return deleteBtn.parentElement.remove()
-
-    })
     formContainer.classList.remove('show')
     return cards.appendChild(card);
   })
-  
+
+  deleteBtn.addEventListener('click', () => {
+    myLibrary.findIndex((obj) => console.log(obj.index = this.index))
+    return deleteBtn.parentElement.remove()
+
+  })
   return books
 })
 
