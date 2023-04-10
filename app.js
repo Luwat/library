@@ -93,7 +93,8 @@ addBook.addEventListener('click', () => {
   })
 
   deleteBtn.addEventListener('click', () => {
-    myLibrary.findIndex((obj) => console.log(obj.index = this.index))
+    const obj = myLibrary.at(index)
+   
     return deleteBtn.parentElement.remove()
 
   })
