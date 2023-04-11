@@ -58,6 +58,8 @@ addBook.addEventListener('click', () => {
   isRead.setAttribute('class', 'btn-read');
   const deleteBtn = document.createElement('button');
   deleteBtn.setAttribute('class', 'btn-delete');
+  const cardIndex = document.createElement('input');
+  cardIndex.setAttribute('type', 'hidden');
   card.appendChild(cardTitle)
   card.appendChild(cardAuthor)
   card.appendChild(cardPages)
@@ -75,6 +77,7 @@ addBook.addEventListener('click', () => {
       cardRead.textContent = `I haven't read this book`;
       isRead.textContent = 'Not read'
     }
+    cardIndex.value = index
 
     isRead.addEventListener("click", () => {
       if (isRead.innerText === "Read") {
@@ -93,9 +96,10 @@ addBook.addEventListener('click', () => {
   })
 
   deleteBtn.addEventListener('click', () => {
-    const obj = myLibrary.at(index)
-   
-    return deleteBtn.parentElement.remove()
+    
+   const newIndex = Number(cardIndex.value)
+   console.log(myLibrary.findIndex((obj) => (obj.index === newIndex)))
+    // return deleteBtn.parentElement.remove()
 
   })
   return books
