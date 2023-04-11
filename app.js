@@ -21,15 +21,22 @@ function Book(title, author, pages, read, index) {
 }
 
 
-function addBookToLibrary(e) {
+const addBookToLibrary = (e) => {
+
   e.preventDefault();
+
   if (
+
     bookTitle.value === "" ||
     bookAuthor.value === "" ||
     bookPages.value === ""
+
   ) {
+
     alert("insert data");
+
   } else {
+
     libraryBooks = new Book(
       bookTitle.value,
       bookAuthor.value,
@@ -37,7 +44,7 @@ function addBookToLibrary(e) {
       bookRead.checked,
       Number(bookIndex.value++)
     );
-    console.log(myLibrary);
+  
     return myLibrary.push(libraryBooks);
   }
 }
@@ -95,13 +102,13 @@ addBook.addEventListener('click', () => {
     return cards.appendChild(card);
   })
 
-  deleteBtn.addEventListener('click', () => {
-    
-   const newIndex = Number(cardIndex.value)
-   console.log(myLibrary.findIndex((obj) => (obj.index === newIndex)))
-    // return deleteBtn.parentElement.remove()
+  deleteBtn.addEventListener("click", () => {
+    const newIndex = Number(cardIndex.value);
+    const myIndex = myLibrary.findIndex((obj) => obj.index === newIndex);
+    myLibrary.splice(myIndex, 1);
 
-  })
+    return deleteBtn.parentElement.remove();
+  });
   return books
 })
 
